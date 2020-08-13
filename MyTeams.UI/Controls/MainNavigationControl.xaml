@@ -3,15 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MyTeams.WpfApp.Controls"
+             xmlns:local="clr-namespace:MyTeams.UI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="85"
              x:Name="ctrlMainNavigation">
   <StackPanel Orientation="Vertical">
     <Button Content="Chat"  />
-    <Button Content="Teams" />
+    <Button 
+       Background="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Background}">
+      <StackPanel Orientation="Vertical">
+        <Image Source="/Images/conversation_32.png" Height="32" />
+        <TextBlock>Teams</TextBlock>
+      </StackPanel>
+
+    </Button>
     <Button Content="Aufgaben" />
     <Button Content="Kalender" />
     <Button Content="Anrufe" />
+    <local:NavigationButton Text="Teams" ImageUrl="/Images/conversation_32.png" />
   </StackPanel>
 </UserControl>
