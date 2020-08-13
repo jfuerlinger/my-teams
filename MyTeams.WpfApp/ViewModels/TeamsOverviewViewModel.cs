@@ -20,5 +20,6 @@ namespace MyTeams.WpfApp.ViewModels
         .ToList()
         .ForEach(channel => Channels.Add(channel));
     }
+
   }
 }

@@ -22,8 +22,9 @@
     </Grid.ColumnDefinitions>
 
     <ctrls:MainNavigationControl Grid.Row="0" Grid.Column="0" />
-    <ctrls:TeamsOverviewControl Grid.Row="0" Grid.Column="1"  DataContext="{Binding TeamsOverviewViewModel}"/>
+    <ctrls:TeamsOverviewControl x:Name="ctrlTeamsOverview" Grid.Row="0" Grid.Column="1"  DataContext="{Binding TeamsOverviewViewModel}"/>
     <GridSplitter Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" />
+    <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ElementName=ctrlTeamsOverview, Path=SelectedChannel.DisplayName}" />
 
   </Grid>
 

@@ -29,7 +29,7 @@
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
 
-      <ListView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Source={StaticResource ChannelsGroupedByTeam}}">
+      <ListView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Source={StaticResource ChannelsGroupedByTeam}}" SelectedItem="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=SelectedChannel}">
         <ListView.View>
           <GridView>
             <GridViewColumn Header="DisplayName" Width="300" DisplayMemberBinding="{Binding DisplayName}" />
