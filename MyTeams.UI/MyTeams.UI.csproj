@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MyTeams.Core\MyTeams.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controls\NewFolder\" />
+  </ItemGroup>
+
 </Project>

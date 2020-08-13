@@ -9,8 +9,8 @@
   <DockPanel>
     <TextBlock DockPanel.Dock="Left" Width="5" Background="Aquamarine"/>
     <StackPanel DockPanel.Dock="Left" Orientation="Vertical" HorizontalAlignment="Center">
-      <Image Source="{Binding ImageUrl}" Height="32" />
-      <TextBlock Text="{Binding Text}"></TextBlock>
+      <Image Source="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=ImageUrl}" Height="32" />
+      <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Text}"/>
     </StackPanel>
   </DockPanel>
 </UserControl>

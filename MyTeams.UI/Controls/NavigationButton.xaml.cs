@@ -11,12 +11,18 @@ namespace MyTeams.UI.Controls
     public NavigationButton()
     {
       InitializeComponent();
+      Loaded += NavigationButton_Loaded;
+    }
+
+    private void NavigationButton_Loaded(object sender, RoutedEventArgs e)
+    {
+      
     }
 
     // Dependency Property
     public static readonly DependencyProperty TextProperty =
          DependencyProperty.Register(nameof(Text), typeof(string),
-         typeof(NavigationButton), new FrameworkPropertyMetadata("-"));
+         typeof(NavigationButton), new FrameworkPropertyMetadata(""));
 
     // .NET Property wrapper
     public string Text
@@ -28,7 +34,7 @@ namespace MyTeams.UI.Controls
     // Dependency Property
     public static readonly DependencyProperty ImageUrlProperty =
          DependencyProperty.Register(nameof(ImageUrl), typeof(string),
-         typeof(NavigationButton), new FrameworkPropertyMetadata(null));
+         typeof(NavigationButton), new FrameworkPropertyMetadata(""));
 
     // .NET Property wrapper
     public string ImageUrl
