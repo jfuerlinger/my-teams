@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyTeams.Core\MyTeams.Core.csproj" />
+    <None Remove="Images\activity_32.png" />
+    <None Remove="Images\chat_32.png" />
+    <None Remove="Images\conversation_32.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\NewFolder\" />
+    <Resource Include="Images\activity_32.png" />
+    <Resource Include="Images\chat_32.png" />
+    <Resource Include="Images\conversation_32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTeams.Core\MyTeams.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,9 +7,9 @@ namespace MyTeams.WpfApp.Controls
   /// <summary>
   /// Interaction logic for AddTeamControl.xaml
   /// </summary>
-  public partial class TeamsOverviewControl : UserControl
+  public partial class TeamsAreaControl : UserControl
   {
-    public TeamsOverviewControl()
+    public TeamsAreaControl()
     {
       InitializeComponent();
       Loaded += TeamsOverviewControl_Loaded;
@@ -23,7 +23,7 @@ namespace MyTeams.WpfApp.Controls
     // Dependency Property
     public static readonly DependencyProperty SelectedChannelProperty =
          DependencyProperty.Register(nameof(SelectedChannel), typeof(Channel),
-         typeof(TeamsOverviewControl), new FrameworkPropertyMetadata(null));
+         typeof(TeamsAreaControl), new FrameworkPropertyMetadata(null));
 
     // .NET Property wrapper
     public Channel SelectedChannel

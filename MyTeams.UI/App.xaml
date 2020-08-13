@@ -4,8 +4,49 @@
              xmlns:local="clr-namespace:MyTeams.WpfApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-    <Style x:Key="ctrlMainNavigation" TargetType="UserControl">
-      <Setter Property="Background" Value="Black"/>
+
+    <Style x:Key="NavigationControl" TargetType="Control">
+      <Setter Property="Background" Value="#33344A"/>
+      <Setter Property="Foreground" Value="#EAEAED"/>
     </Style>
-    </Application.Resources>
+
+    <Style x:Key="HeaderControl" TargetType="Panel">
+      <Setter Property="Background" Value="#464775"/>
+    </Style>
+
+    <Style x:Key="HeaderControl_Caption" TargetType="TextBlock">
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <DataTemplate x:Key="NavigationItemTemplate">
+      <DockPanel HorizontalAlignment="Stretch" Width="65" Margin="-5,5,0,5">
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" HorizontalAlignment="Center" >
+          <Image Source="{Binding ImageUrl}" Height="32" />
+          <TextBlock Text="{Binding Label}" />
+        </StackPanel>
+      </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SelectedNavigationItemTemplate">
+      <DockPanel HorizontalAlignment="Stretch" Width="65" Margin="-5,5,0,5">
+        <TextBlock DockPanel.Dock="Left" Width="5" Background="#E2E2F6" Padding="0" Margin="0"/>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" HorizontalAlignment="Center" >
+          <Image Source="{Binding ImageUrl}" Height="32" />
+          <TextBlock Text="{Binding Label}" />
+        </StackPanel>
+      </DockPanel>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="NavigationContainerStyle">
+      <Setter Property="ContentTemplate" Value="{StaticResource NavigationItemTemplate}" />
+      <Style.Triggers>
+        <Trigger Property="IsSelected" Value="True">
+          <Setter Property="ContentTemplate" Value="{StaticResource SelectedNavigationItemTemplate}" />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+
+  </Application.Resources>
 </Application>
