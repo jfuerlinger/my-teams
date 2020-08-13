@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30323.103
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTeams.WpfApp", "MyTeams.WpfApp\MyTeams.WpfApp.csproj", "{927204D3-0E18-4DC8-8DFE-0AB079E6CF90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTeams.Core", "MyTeams.Core\MyTeams.Core.csproj", "{2DA6AD26-F1B7-4943-9548-EA771E386E1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{927204D3-0E18-4DC8-8DFE-0AB079E6CF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927204D3-0E18-4DC8-8DFE-0AB079E6CF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927204D3-0E18-4DC8-8DFE-0AB079E6CF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927204D3-0E18-4DC8-8DFE-0AB079E6CF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9894813F-2BC0-4CE8-B164-036261365E50}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MyTeams.WpfApp.Controls.MainNavigationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyTeams.WpfApp.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="85"
+             x:Name="ctrlMainNavigation">
+  <StackPanel Orientation="Vertical">
+    <Button Content="Chat"  />
+    <Button Content="Teams" />
+    <Button Content="Aufgaben" />
+    <Button Content="Kalender" />
+    <Button Content="Anrufe" />
+  </StackPanel>
+</UserControl>
