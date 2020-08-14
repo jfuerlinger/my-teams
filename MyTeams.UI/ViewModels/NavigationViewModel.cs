@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace MyTeams.UI.ViewModels
 {
-  public class MainNavigationViewModel : ViewModelBase
+  public class NavigationViewModel : ViewModelBase
   {
     public ObservableCollection<MainNavigationEntry> NavigationEntries { get; private set; }
 
-    public MainNavigationViewModel(ITeamsService teamsService) : base(teamsService)
+    public NavigationViewModel(ITeamsService teamsService) : base(teamsService)
     {
       NavigationEntries = new ObservableCollection<MainNavigationEntry>();
 

@@ -7,12 +7,12 @@ namespace MyTeams.WpfApp.ViewModels
   class MainViewModel : ViewModelBase
   {
     public TeamsOverviewViewModel TeamsOverviewViewModel { get; private set; }
-    public MainNavigationViewModel  MainNavigationViewModel { get; private set; }
+    public NavigationViewModel  NavigationViewModel { get; private set; }
 
     public MainViewModel(ITeamsService teamsService) : base(teamsService)
     {
       TeamsOverviewViewModel = new TeamsOverviewViewModel(TeamsService);
-      MainNavigationViewModel = new MainNavigationViewModel(TeamsService);
+      NavigationViewModel = new NavigationViewModel(TeamsService);
     }
 
   }

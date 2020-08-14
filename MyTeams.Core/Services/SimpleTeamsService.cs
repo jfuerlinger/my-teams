@@ -86,31 +86,33 @@ namespace MyTeams.Core.Services
 
     private void GenerateNewMessage()
     {
-      Message newMessage;
-      if (_random.NextDouble() < PropabilityOfImageMessage)
+      for (int i = 0; i < _random.Next(5); i++)
       {
-        newMessage = new ImageMessage()
+        Message newMessage;
+        if (_random.NextDouble() < PropabilityOfImageMessage)
         {
-          Channel = GetRandomChannel(),
-          From = GetRandomUser(),
-          Text = GetRandomMessage(),
-          Sent = DateTime.Now.AddSeconds(_random.NextDouble()),
-          ImageUrl = $"https://picsum.photos/id/{_random.Next(500)}/200"
-        };
-      }
-      else
-      {
-        newMessage = new Message()
+          newMessage = new ImageMessage()
+          {
+            Channel = GetRandomChannel(),
+            From = GetRandomUser(),
+            Text = GetRandomMessage(),
+            Sent = DateTime.Now.AddSeconds(_random.NextDouble()),
+            ImageUrl = $"https://picsum.photos/id/{_random.Next(500)}/200"
+          };
+        }
+        else
         {
-          Channel = GetRandomChannel(),
-          From = GetRandomUser(),
-          Text = GetRandomMessage(),
-          Sent = DateTime.Now.AddSeconds(_random.NextDouble())
-        };
+          newMessage = new Message()
+          {
+            Channel = GetRandomChannel(),
+            From = GetRandomUser(),
+            Text = GetRandomMessage(),
+            Sent = DateTime.Now.AddSeconds(_random.NextDouble())
+          };
+        }
+
+        _messagesToBeSent.Add(newMessage);
       }
-
-
-      _messagesToBeSent.Add(newMessage);
     }
 
     private Channel GetRandomChannel()

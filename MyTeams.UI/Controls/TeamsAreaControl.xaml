@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:model="clr-namespace:MyTeams.Core.Model;assembly=MyTeams.Core"
+             xmlns:infrastructure="clr-namespace:MyTeams.UI.Infrastructure"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Stretch">
 
@@ -141,13 +142,12 @@
 
     <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"/>
 
-    <ScrollViewer Grid.Row="1" Grid.Column="2" Background="#F3F2F1">
+    <ScrollViewer Grid.Row="1" Grid.Column="2" Background="#F3F2F1" infrastructure:Helper.AutoScroll="{Binding CurrentChannel.UnreadMessages}">
       <ItemsControl ItemsSource="{Binding CurrentChannel.Messages}"/>
     </ScrollViewer>
 
 
     <Button Grid.Row="2" Grid.Column="0" Content="Team beitreten oder erstellen" />
-    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding CurrentChannel.Channel.DisplayName}" />
 
   </Grid>
 </UserControl>

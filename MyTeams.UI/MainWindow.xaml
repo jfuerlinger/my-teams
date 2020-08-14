@@ -22,7 +22,7 @@
       <TextBox Width="500" Margin="5"  />
     </StackPanel>
     
-    <ctrls:MainNavigationControl Grid.Row="1" Grid.Column="0" DataContext="{Binding MainNavigationViewModel}"/>
+    <ctrls:NavigationControl Grid.Row="1" Grid.Column="0" DataContext="{Binding NavigationViewModel}"/>
     <ctrls:TeamsAreaControl x:Name="ctrlTeamsOverview" Grid.Row="1" Grid.Column="1"  DataContext="{Binding TeamsOverviewViewModel}" />
   </Grid>
 
