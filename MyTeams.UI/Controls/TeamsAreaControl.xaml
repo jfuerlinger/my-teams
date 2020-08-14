@@ -3,47 +3,112 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:model="clr-namespace:MyTeams.Core.Model;assembly=MyTeams.Core"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Stretch">
 
   <UserControl.Resources>
+    <!-- Gruppierung einer Datasource -->
     <CollectionViewSource x:Key="ChannelsGroupedByTeam" Source="{Binding Channels}">
       <CollectionViewSource.GroupDescriptions>
-        <PropertyGroupDescription PropertyName="Team.DisplayName" />
+        <PropertyGroupDescription PropertyName="Channel.Team.DisplayName" />
       </CollectionViewSource.GroupDescriptions>
     </CollectionViewSource>
+
+    <!-- Zuordnung auf Datentyp -->
+    <DataTemplate DataType="{x:Type model:Message}">
+      <DockPanel LastChildFill="True">
+        <Image DockPanel.Dock="Left" Source="{Binding From.AvatarUrl}" Width="64" />
+
+        <Border DockPanel.Dock="Left" BorderBrush="#FFFFFF" BorderThickness="1" CornerRadius="4" Padding="5" Margin="15,10,15,0" Background="#FFFFFF">
+
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="100" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding From.Fullname}" Background="#FFFFFF" FontWeight="SemiBold" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Sent, StringFormat='dd.MM.yyyy hh:mm:ss'}" Background="#FFFFFF"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                             Text="{Binding Text}" 
+                             VerticalAlignment="Stretch" 
+                             HorizontalAlignment="Stretch" 
+                             Background="#FFFFFF" 
+                             Padding="5,0,0,10"/>
+          </Grid>
+        </Border>
+      </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:ImageMessage}">
+      <DockPanel LastChildFill="True">
+        <Image DockPanel.Dock="Left" Source="{Binding From.AvatarUrl}" Width="64" />
+
+        <Border DockPanel.Dock="Left" BorderBrush="#FFFFFF" BorderThickness="1" CornerRadius="4" Padding="5" Margin="15,10,15,0" Background="#FFFFFF">
+
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="100" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding From.Fullname}" Background="#FFFFFF" FontWeight="SemiBold" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Sent, StringFormat='dd.MM.yyyy hh:mm:ss'}" Background="#FFFFFF"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                             Text="{Binding Text}" 
+                             VerticalAlignment="Stretch" 
+                             HorizontalAlignment="Stretch" 
+                             Background="#FFFFFF" 
+                             Padding="5,0,0,10"/>
+
+            <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="{Binding ImageUrl}" Width="200" HorizontalAlignment="Left"/>
+          </Grid>
+        </Border>
+      </DockPanel>
+    </DataTemplate>
+
   </UserControl.Resources>
 
 
-  <Grid Background="#F3F2F1">
+  <Grid Background="#F3F2F1" HorizontalAlignment="Stretch">
     <Grid.RowDefinitions>
       <RowDefinition Height="50" />
       <RowDefinition Height="*" />
       <RowDefinition Height="65" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="200" />
+      <ColumnDefinition Width="300" />
       <ColumnDefinition Width="5" />
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
-    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="SemiBold" FontSize="16">Teams</TextBlock>
-    
+    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="SemiBold" FontSize="16">Meine Teams</TextBlock>
+
     <ListView Grid.Row="1" Grid.Column="0" 
-              x:Name="lsvChannels"  
-              ItemsSource="{Binding Source={StaticResource ChannelsGroupedByTeam}}" >
+              ItemsSource="{Binding Source={StaticResource ChannelsGroupedByTeam}}"
+              SelectedItem="{Binding CurrentChannel}">
       <ListView.View>
         <GridView>
-          <GridViewColumn Header="DisplayName" Width="300" DisplayMemberBinding="{Binding DisplayName}" />
+          <GridViewColumn Header="DisplayName" Width="250" DisplayMemberBinding="{Binding Channel.DisplayName}" />
         </GridView>
       </ListView.View>
-
       <ListView.Resources>
         <Style TargetType="{x:Type GridViewColumnHeader}">
           <Setter Property="Visibility" Value="Collapsed" />
         </Style>
       </ListView.Resources>
-
       <ListView.GroupStyle>
         <GroupStyle>
           <GroupStyle.ContainerStyle>
@@ -52,12 +117,11 @@
               <Setter Property="Template">
                 <Setter.Value>
                   <ControlTemplate TargetType="{x:Type GroupItem}">
-                    <Expander IsExpanded="False" BorderBrush="#FFA4B97F" 
-                          BorderThickness="0,0,0,1">
+                    <Expander IsExpanded="True">
                       <Expander.Header>
                         <DockPanel>
-                          <TextBlock FontWeight="Bold" Text="{Binding Items[0].Team.DisplayName}" 
-                                 Margin="5,0,0,0" Width="300"/>
+                          <TextBlock Text="{Binding Items[0].Channel.Team.DisplayName}" 
+                                 Margin="5,10,0,10" Width="250"/>
                           <TextBlock FontWeight="Bold" 
                                  Text="{Binding Path=ItemCount}"/>
                         </DockPanel>
@@ -73,20 +137,17 @@
           </GroupStyle.ContainerStyle>
         </GroupStyle>
       </ListView.GroupStyle>
-
     </ListView>
 
     <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"/>
 
-    
+    <ScrollViewer Grid.Row="1" Grid.Column="2" Background="#F3F2F1">
+      <ItemsControl ItemsSource="{Binding CurrentChannel.Messages}"/>
+    </ScrollViewer>
 
-    <ListBox Grid.Row="1" Grid.Column="2" Background="#F3F2F1">
-      <ListBoxItem Content="ABC" />
-      <ListBoxItem Content="XYZ" />
-    </ListBox>
-    
+
     <Button Grid.Row="2" Grid.Column="0" Content="Team beitreten oder erstellen" />
-    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding ElementName=lsvChannels, Path=SelectedItem.DisplayName}" />
+    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding CurrentChannel.Channel.DisplayName}" />
 
   </Grid>
 </UserControl>

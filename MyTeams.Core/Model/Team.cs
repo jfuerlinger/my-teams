@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace MyTeams.Core.Model
 {
-  public class Team
+  public class Team : EntityObject
   {
     public string DisplayName { get; private set; }
 

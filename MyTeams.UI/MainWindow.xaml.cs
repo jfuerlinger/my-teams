@@ -1,19 +1,7 @@
-﻿using MyTeams.Core.Services;
+﻿using MyTeams.Core.Model;
+using MyTeams.Core.Services;
 using MyTeams.WpfApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyTeams.WpfApp
 {
@@ -26,7 +14,7 @@ namespace MyTeams.WpfApp
     {
       InitializeComponent();
 
-      MainViewModel mainViewModel = new MainViewModel(new TeamsService());
+      MainViewModel mainViewModel = new MainViewModel(new SimpleTeamsService(new User() { Id = 1, Firstname = "Josef", Lastname = "Fürlinger" }));
       DataContext = mainViewModel;
     }
   }

@@ -9,17 +9,21 @@
   <ItemGroup>
     <None Remove="Images\activity_32.png" />
     <None Remove="Images\chat_32.png" />
-    <None Remove="Images\conversation_32.png" />
+    <None Remove="Images\teams_32.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\activity_32.png" />
     <Resource Include="Images\chat_32.png" />
-    <Resource Include="Images\conversation_32.png" />
+    <Resource Include="Images\teams_32.png" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MyTeams.Core\MyTeams.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\NewFolder\" />
   </ItemGroup>
 
 </Project>

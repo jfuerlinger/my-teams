@@ -1,7 +1,6 @@
 ﻿using MyTeams.Core.Contracts;
 using MyTeams.UI.Model;
 using MyTeams.WpfApp.Infrastructure;
-using System;
 using System.Collections.ObjectModel;
 
 namespace MyTeams.UI.ViewModels
@@ -21,11 +20,7 @@ namespace MyTeams.UI.ViewModels
     {
       NavigationEntries.Add(new MainNavigationEntry("Aktivität", "/Images/activity_32.png"));
       NavigationEntries.Add(new MainNavigationEntry("Chat", "/Images/chat_32.png"));
-      NavigationEntries.Add(new MainNavigationEntry("Teams", "/Images/conversation_32.png"));
-      NavigationEntries.Add(new MainNavigationEntry("Aufgaben", "/Images/conversation_32.png"));
-      NavigationEntries.Add(new MainNavigationEntry("Kalender", "/Images/conversation_32.png"));
-      NavigationEntries.Add(new MainNavigationEntry("Anrufe", "/Images/conversation_32.png"));
-      NavigationEntries.Add(new MainNavigationEntry("Dateien", "/Images/conversation_32.png"));
+      NavigationEntries.Add(new MainNavigationEntry("Teams", "/Images/teams_32.png"));
     }
   }
 }
