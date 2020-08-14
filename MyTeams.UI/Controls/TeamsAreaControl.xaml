@@ -103,6 +103,7 @@
       <ListView.View>
         <GridView>
           <GridViewColumn Header="DisplayName" Width="250" DisplayMemberBinding="{Binding Channel.DisplayName}" />
+          <GridViewColumn Header="DisplayName" Width="25" DisplayMemberBinding="{Binding UnreadMessages}" />
         </GridView>
       </ListView.View>
       <ListView.Resources>
@@ -123,8 +124,6 @@
                         <DockPanel>
                           <TextBlock Text="{Binding Items[0].Channel.Team.DisplayName}" 
                                  Margin="5,10,0,10" Width="250"/>
-                          <TextBlock FontWeight="Bold" 
-                                 Text="{Binding Path=ItemCount}"/>
                         </DockPanel>
                       </Expander.Header>
                       <Expander.Content>
@@ -146,8 +145,7 @@
       <ItemsControl ItemsSource="{Binding CurrentChannel.Messages}"/>
     </ScrollViewer>
 
-
-    <Button Grid.Row="2" Grid.Column="0" Content="Team beitreten oder erstellen" />
+    <Button Grid.Row="2" Grid.Column="0" Content="Team beitreten oder erstellen" Command="{Binding AddOrJoinTeamCommand}"/>
 
   </Grid>
 </UserControl>
