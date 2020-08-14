@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ctrls="clr-namespace:MyTeams.WpfApp.Controls"
+        xmlns:vms="clr-namespace:MyTeams.WpfApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1024">
 
+  <Window.Resources>
+    <DataTemplate DataType="{x:Type vms:TeamsAreaViewModel}">
+      <ctrls:TeamsAreaControl x:Name="ctrlTeamsOverview" Grid.Row="1" Grid.Column="1"  DataContext="{Binding .}" />
+    </DataTemplate>
+  </Window.Resources>
+  
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="50"/>
@@ -22,8 +29,13 @@
       <TextBox Width="500" Margin="5"  />
     </StackPanel>
     
-    <ctrls:NavigationControl Grid.Row="1" Grid.Column="0" DataContext="{Binding NavigationViewModel}"/>
-    <ctrls:TeamsAreaControl x:Name="ctrlTeamsOverview" Grid.Row="1" Grid.Column="1"  DataContext="{Binding TeamsOverviewViewModel}" />
+    <ctrls:NavigationControl x:Name="ctrlNavigation" 
+                             Grid.Row="1" Grid.Column="0" 
+                             DataContext="{Binding NavigationViewModel}"/>
+
+    <ContentControl Grid.Row="1" Grid.Column="1" 
+                    Content="{Binding ElementName=ctrlNavigation, Path=SelectedNavigationEntry.ViewModel}" />
+
   </Grid>
 
 </Window>

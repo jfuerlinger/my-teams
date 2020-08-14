@@ -145,7 +145,7 @@
       <ItemsControl ItemsSource="{Binding CurrentChannel.Messages}"/>
     </ScrollViewer>
 
-    <Button Grid.Row="2" Grid.Column="0" Content="Team beitreten oder erstellen" Command="{Binding AddOrJoinTeamCommand}"/>
+    <Button Grid.Row="2" Grid.Column="0" Content="Team erstellen" Command="{Binding AddTeamCommand}"/>
 
   </Grid>
 </UserControl>

@@ -9,10 +9,9 @@ using System.Windows.Input;
 
 namespace MyTeams.WpfApp.ViewModels
 {
-  public class TeamsOverviewViewModel : ViewModelBase
+  public class TeamsAreaViewModel : ViewModelBase
   {
     private ChannelViewModel _currentChannel;
-    
 
     public ObservableCollection<ChannelViewModel> Channels { get; set; }
 
@@ -27,12 +26,12 @@ namespace MyTeams.WpfApp.ViewModels
       }
     }
 
-    public ICommand AddOrJoinTeamCommand { get; private set; }
+    public ICommand AddTeamCommand { get; private set; }
 
-    public TeamsOverviewViewModel(ITeamsService teamsService) : base(teamsService)
+    public TeamsAreaViewModel(ITeamsService teamsService) : base(teamsService)
     {
-      AddOrJoinTeamCommand = new RelayCommand(
-        execute: (_) => Debug.WriteLine("TODO: Add or Join Team"),
+      AddTeamCommand = new RelayCommand(
+        execute: (_) => Debug.WriteLine("TODO: Add team per web admin interface"),
         canExecute: (_) => false);
 
       Channels = new ObservableCollection<ChannelViewModel>();
@@ -45,7 +44,5 @@ namespace MyTeams.WpfApp.ViewModels
 
       CurrentChannel = Channels.FirstOrDefault();
     }
-
-
   }
 }
