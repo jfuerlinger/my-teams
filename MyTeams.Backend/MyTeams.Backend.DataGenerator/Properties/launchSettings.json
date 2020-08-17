@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MyTeams.Backend.DataGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "generate --endless"
+    }
+  }
+}
