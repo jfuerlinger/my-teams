@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30323.103
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTeams.Core", "MyTeams.Core\MyTeams.Core.csproj", "{2DA6AD26-F1B7-4943-9548-EA771E386E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTeams.Frontend.WPFClient.Core", "MyTeams.Frontend.WPFClient.Core\MyTeams.Frontend.WPFClient.Core.csproj", "{40AEC3C3-4833-4BB2-8CDD-26091B5D30FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTeams.UI", "MyTeams.UI\MyTeams.UI.csproj", "{3ADBB2DC-44A3-4AFC-B56A-3CC3392848E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTeams.Frontend.ServicePoC", "MyTeams.Frontend.WPFClient.ServicePoC\MyTeams.Frontend.ServicePoC.csproj", "{0EC779B2-9679-4B76-A500-9E32BE732757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTeams.WebApi", "MyTeams.WebApi\MyTeams.WebApi.csproj", "{BEFF2FC8-B9F4-4308-902E-82795BC27C0D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTeams.Persistence", "MyTeams.Persistence\MyTeams.Persistence.csproj", "{A55D6DB2-E219-4B00-A7C8-1DC530582D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTeams.Frontend.WPFClient.UI", "MyTeams.Frontend.WPFClient.UI\MyTeams.Frontend.WPFClient.UI.csproj", "{77EDD2F8-AF33-46FC-97B2-A1FF71AA6746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DA6AD26-F1B7-4943-9548-EA771E386E1C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3ADBB2DC-44A3-4AFC-B56A-3CC3392848E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3ADBB2DC-44A3-4AFC-B56A-3CC3392848E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3ADBB2DC-44A3-4AFC-B56A-3CC3392848E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3ADBB2DC-44A3-4AFC-B56A-3CC3392848E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEFF2FC8-B9F4-4308-902E-82795BC27C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEFF2FC8-B9F4-4308-902E-82795BC27C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEFF2FC8-B9F4-4308-902E-82795BC27C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEFF2FC8-B9F4-4308-902E-82795BC27C0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A55D6DB2-E219-4B00-A7C8-1DC530582D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A55D6DB2-E219-4B00-A7C8-1DC530582D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A55D6DB2-E219-4B00-A7C8-1DC530582D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A55D6DB2-E219-4B00-A7C8-1DC530582D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AEC3C3-4833-4BB2-8CDD-26091B5D30FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AEC3C3-4833-4BB2-8CDD-26091B5D30FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AEC3C3-4833-4BB2-8CDD-26091B5D30FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AEC3C3-4833-4BB2-8CDD-26091B5D30FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC779B2-9679-4B76-A500-9E32BE732757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC779B2-9679-4B76-A500-9E32BE732757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC779B2-9679-4B76-A500-9E32BE732757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC779B2-9679-4B76-A500-9E32BE732757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EDD2F8-AF33-46FC-97B2-A1FF71AA6746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EDD2F8-AF33-46FC-97B2-A1FF71AA6746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EDD2F8-AF33-46FC-97B2-A1FF71AA6746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EDD2F8-AF33-46FC-97B2-A1FF71AA6746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

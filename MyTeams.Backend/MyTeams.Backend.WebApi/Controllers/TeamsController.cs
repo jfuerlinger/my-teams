@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using MyTeams.Backend.Core.Contracts;
 using MyTeams.Backend.Core.Model;
+using MyTeams.Backend.WebApi.DataTransferObjects;
+using MyTeams.Backend.WebApi.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,26 +23,29 @@ namespace MyTeams.Backend.WebApi.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Team>> GetById(int id)
-      => await _unitOfWork.TeamRepository
-          .GetByIdAsync(id);
+    public async Task<ActionResult<TeamDto>> GetById(int id)
+      => TeamMapper.MapToDto(
+          await _unitOfWork.TeamRepository
+            .GetByIdAsync(id));
 
     [HttpGet]
-    public async Task<ActionResult<Team[]>> Get()
+    public async Task<ActionResult<TeamDto[]>> Get()
       => (await _unitOfWork.TeamRepository
           .GetAllAsync())
           .OrderBy(team => team.DisplayName)
+          .Select(team => TeamMapper.MapToDto(team))
           .ToArray();
 
     [HttpGet("{id}/channels")]
-    public async Task<ActionResult<Channel[]>> GetChannelsByTeamId(int id)
+    public async Task<ActionResult<ChannelDto[]>> GetChannelsByTeamId(int id)
       => (await _unitOfWork.ChannelRepository
           .GetByTeamIdAsync(id))
           .OrderBy(channel => channel.DisplayName)
+          .Select(channel => ChannelMapper.MapToDto(channel))
           .ToArray();
 
     [HttpPost]
-    public async Task<ActionResult<Team>> Add(string displayName)
+    public async Task<ActionResult<TeamDto>> Add(string displayName)
     {
       Team newTeam = new Team() { DisplayName = displayName };
 
@@ -53,10 +58,7 @@ namespace MyTeams.Backend.WebApi.Controllers
         {
           id = newTeam.Id
         },
-        new
-        {
-          DisplayName = displayName
-        });
+        TeamMapper.MapToDto(newTeam));
     }
   }
 }

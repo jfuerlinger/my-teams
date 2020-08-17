@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -52,6 +53,12 @@ namespace MyTeams.Backend.WebApi
         var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
         c.IncludeXmlComments(xmlPath);
+
+        c.CustomOperationIds(d =>
+        {
+          ControllerActionDescriptor descriptor = d.ActionDescriptor as ControllerActionDescriptor;
+          return $"{descriptor?.ControllerName.Replace("Controller", "")}_{descriptor?.ActionName}";
+        });
       });
     }
 
@@ -66,7 +73,10 @@ namespace MyTeams.Backend.WebApi
       app.UseHttpsRedirection();
 
       // Enable middleware to serve generated Swagger as a JSON endpoint.
-      app.UseSwagger();
+      app.UseSwagger(c =>
+      {
+        c.SerializeAsV2 = true;
+      });
 
       // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
       // specifying the Swagger JSON endpoint.
