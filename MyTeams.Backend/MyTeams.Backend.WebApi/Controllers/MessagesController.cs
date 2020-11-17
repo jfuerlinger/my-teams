@@ -23,8 +23,8 @@ namespace MyTeams.Backend.WebApi.Controllers
       _unitOfWork = unitOfWork;
     }
 
-    [HttpGet(Name = nameof(GetMessagesByChannelIdAsync))]
-    public async Task<ActionResult<MessageDto[]>> GetMessagesByChannelIdAsync(DateTime newerThan)
+    [HttpGet(Name = nameof(GetMessagesNewerThanAsync))]
+    public async Task<ActionResult<MessageDto[]>> GetMessagesNewerThanAsync(DateTime newerThan)
       => (await _unitOfWork.MessageRepository
             .GetMessagesNewerThan(newerThan))
             .Select(message => MessageMapper.MapToDto(message))
